@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'qimamhd_preventing_credit_inv',
+    'name': 'qimamhd_account_credit_memo',
 	'version': '13.0.1.0.0',
-	'summary': 'qimamhd_preventing_credit_inv',
+	'summary': 'qimamhd_account_credit_memo',
 	'category': 'Tools',
 	'author': 'Developers team',
 	'maintainer': 'qimamhd-tech Techno Solutions',
@@ -16,14 +16,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account'],
+    'depends': ['base','custom_payments_odoo13'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'security/security.xml',
-        'views/res_config_setting.xml',
-        'views/partner.xml',
+        # 'security/security.xml',
+        'views/pl_closed_view.xml',
+        
 	#'wizards/recap.xml',
     ],
     # only loaded in demonstration mode

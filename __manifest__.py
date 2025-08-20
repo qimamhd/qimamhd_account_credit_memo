@@ -16,13 +16,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','custom_payments_odoo13'],
+    'depends': ['base','account'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         # 'security/security.xml',
-        'views/pl_closed_view.xml',
+        'views/account_move.xml',
         
 	#'wizards/recap.xml',
     ],

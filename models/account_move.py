@@ -16,7 +16,7 @@ class partner_summary_xlsx(models.TransientModel):
         for rec in self:
             if rec.type == 'out_refund':
                 if rec.hide_credit_note_report:
-                    if round(rec.amount_total,2) != round(rec.reversed_entry_id.amount_total,2)
+                    if round(rec.amount_total,2) != round(rec.reversed_entry_id.amount_total,2):
                            raise ValidationError("تنبيه: فاتورة المرتجع غير مطابقة للفاتورة" % exception_move)
         
 

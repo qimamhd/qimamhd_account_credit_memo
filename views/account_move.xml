@@ -7,7 +7,7 @@
               <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='ref']" position="after">
-                       <field name="hide_credit_note_report" attrs={'invisible':['|',('reversed_entry_id','=', False),('type','not in',['out_refund'])]}/>
+                       <field name="hide_credit_note_report" attrs="{'invisible':['|',('reversed_entry_id','=', False),('type','not in',['out_refund'])]}"/>
                 </xpath>  
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','in',['out_refund','in_refund'])]}</attribute>

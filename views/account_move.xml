@@ -4,11 +4,15 @@
         <field name="name">hide_credit_memo_from_inv_view</field>
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form" />
-              <field name="arch" type="xml">
+            <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='ref']" position="after">
-                       <field name="hide_credit_note_report" attrs="{'invisible':['|',('reversed_entry_id','=', False),('type','not in',['out_refund'])]}"/>
-                </xpath>  
+                    <field name="hide_credit_note_report"
+                        attrs="{'invisible': ['|',
+                            ('reversed_entry_id', '=', False),
+                            ('move_type', '!=', 'out_refund')
+                        ]}"/>
+                </xpath>
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','in',['out_refund','in_refund'])]}</attribute>
                 </xpath>  

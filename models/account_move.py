@@ -5,7 +5,7 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
  
-class partner_summary_xlsx(models.TransientModel):
+class account_move(models.Model):
     _inherit = 'account.move'
    
     hide_credit_note_report = fields.Boolean(string="اخفاء من تقرير الحسابات")

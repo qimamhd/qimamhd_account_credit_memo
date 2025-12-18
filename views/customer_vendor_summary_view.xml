@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="partner1_statement_summary_extend_view" model="ir.ui.view">
+        <field name="name">partner1_statement_summary_extend</field>
+        <field name="model">partner.summary.report</field>
+        <field name="inherit_id" ref="qimmamhd_system.partner1_statement_summary" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='filter_suppliers']" position="after">
+                      <field name="hide_fully_credit_note"/>
+                </xpath>
+              
+           </field>
+    </record>
+         
+</odoo>

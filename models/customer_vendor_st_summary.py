@@ -119,7 +119,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                 elif l_doc_state == 'posted':
                     state = ['posted']
 
-                move_list = self.env['account.move'].search([('partner_id','in',l_partner_id),('date', '>=', date_start), ('date', '<=', date_end),('state','in', state)
+                move_list = self.env['account.move'].search([('partner_id','in',l_partner_id),('date', '>=', date_start), ('date', '<=', date_end),('state','in', state),
                                                         ('type','in','out_refund'),('hide_credit_note_report','=',True)])
                 exception_move= []
                 for move in move_list:

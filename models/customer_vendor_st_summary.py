@@ -1581,22 +1581,20 @@ class ReportAttendanceRecap(models.AbstractModel):
         sql_parameters = ''
         sql_payment_parameters = ''
 
-        print("move_list**************************",move_list)
         if move_list:
-            if len(move_list.ids) > 1:
-                sql_parameters += " and (h.id not in %s " % (tuple(move_list.ids),)
-            else:
-                if len(move_list.ids) == 1:
-                    move_list = move_list.ids[0]
-                    sql_parameters += " and (h.id != %s " % (move_list)
-         
-            if len(move_list.reversed_entry_id.ids) > 1:
-                sql_parameters += " or h.id not in %s )" % (tuple(move_list.reversed_entry_id.ids),)
-            else:
-                if len(move_list.ids) == 1:
-                    move_list = move_list.reversed_entry_id.ids[0]
-                    sql_parameters += " or h.id != %s )" % (move_list)
+            select = []
+            for m in move_list:
+                select.append(m.id)
+                select.append(m.reversed_entry_id.id)
+            
 
+            if len(select) > 1:
+                sql_parameters += " and h.id not in %s " % (tuple(select),)
+            else:
+                if len(select) == 1:
+                    move_list = move_list.ids[0]
+                    sql_parameters += " and h.id != %s " % (move_list)
+          
 
             #   sql_parameters += " and h.id not in %s " % (tuple(move_list.ids))
             #   sql_parameters += " and h.id not in %s " % (tuple(move_list.reversed_entry_id.ids))

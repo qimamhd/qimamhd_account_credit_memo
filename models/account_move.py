@@ -17,6 +17,6 @@ class account_move(models.Model):
             if rec.type == 'out_refund':
                 if rec.hide_credit_note_report:
                     if round(rec.amount_total,2) != round(rec.reversed_entry_id.amount_total,2):
-                           raise ValidationError("تنبيه: فاتورة المرتجع غير مطابقة للفاتورة" % exception_move)
+                           raise ValidationError("تنبيه: فاتورة المرتجع غير مطابقة للفاتورة" )
         
 

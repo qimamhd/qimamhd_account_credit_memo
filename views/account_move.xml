@@ -10,7 +10,7 @@
                     <field name="hide_credit_note_report"
                         attrs="{'invisible': ['|',
                             ('reversed_entry_id', '=', False),
-                            ('move_type', '!=', 'out_refund')
+                            ('type', '!=', 'out_refund')
                         ]}"/>
                 </xpath>
                 <xpath expr="//button[@name='action_reverse']" position="attributes">

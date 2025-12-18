@@ -11,7 +11,7 @@
                         attrs="{'invisible': ['|',
                             ('reversed_entry_id', '=', False),
                             ('type', '!=', 'out_refund')
-                        ]}"/>
+                        ],'readonly': [('state','!=','draft')]}"/>
                 </xpath>
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','in',['out_refund','in_refund'])]}</attribute>

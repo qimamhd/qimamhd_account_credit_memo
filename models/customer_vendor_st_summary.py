@@ -110,7 +110,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                     l_branch_id.append(b.id)
 
      
-              
+        move_list = ''
         if l_hide_fully_credit_note:
            if l_display_type == 'detail':
                 state =[]

@@ -1583,7 +1583,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
         print("move_list**************************",move_list)
         if move_list:
-             if len(move_list.ids) > 1:
+            if len(move_list.ids) > 1:
                 sql_parameters += " and h.id not in %s " % (tuple(move_list.ids),)
             else:
                 if len(move_list.ids) == 1:

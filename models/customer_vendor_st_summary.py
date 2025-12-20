@@ -1595,10 +1595,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                     move_list = move_list.ids[0]
                     sql_parameters += " and h.id != %s " % (move_list)
           
-
-            #   sql_parameters += " and h.id not in %s " % (tuple(move_list.ids))
-            #   sql_parameters += " and h.id not in %s " % (tuple(move_list.reversed_entry_id.ids))
-
+ 
 
         if l_company_ids1:
             if len(l_company_ids1) > 1:

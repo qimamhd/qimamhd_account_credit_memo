@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='filter_suppliers']" position="after">
-                      <field name="hide_fully_credit_note"/>
+                      <field name="hide_fully_credit_note" groups="qimamhd_account_credit_memo.group_hide_return_complete_invoice_priv"/>
                 </xpath>
               
            </field>

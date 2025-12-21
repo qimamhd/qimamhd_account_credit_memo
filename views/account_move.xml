@@ -10,7 +10,7 @@
                     <field name="hide_credit_note_report"
                         attrs="{'invisible': ['|',
                             ('reversed_entry_id', '=', False),
-                            ('type', '!=', 'out_refund')]}"/>
+                            ('type', '!=', 'out_refund')]}" groups="qimamhd_account_credit_memo.group_hide_return_complete_invoice_priv"/>
                 </xpath>
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','in',['out_refund','in_refund'])]}</attribute>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+	     
+        <record id="group_hide_return_complete_invoice_priv" model="res.groups">
+			<field name="name">اظهار خيار اخفاء المرتجعات المكتمله من تقرير العملاء</field>
+		 
+
+		</record>
+
+
+
+    </data>
+</odoo>

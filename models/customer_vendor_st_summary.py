@@ -1711,22 +1711,22 @@ class ReportAttendanceRecap(models.AbstractModel):
 
             if l_only_customers and l_only_suppliers:
                 account_codes = self.env['account.move.line'].search(
-                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)])
+                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)]).account_id.ids
 
                 payment_account_ids = self.env['account.account'].search(
-                    ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)])
+                    ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)]).ids
 
             else:
                 if l_only_customers:
-                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)])
+                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)]).account_id.ids
                     payment_account_ids = self.env['account.account'].search(
-                        [('id', 'in', partner_rec_acc_ids)])
+                        [('id', 'in', partner_rec_acc_ids)]).ids
 
                 else:
                     if l_only_suppliers:
-                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)])
+                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)]).account_id.ids
                         payment_account_ids = self.env['account.account'].search(
-                            [('id', 'in', partner_pay_acc_ids)])
+                            [('id', 'in', partner_pay_acc_ids)]).ids
 
             if payment_account_ids:
                 payment_account_codes = self.get_account_code(payment_account_ids, l_company_ids1)
@@ -1743,10 +1743,10 @@ class ReportAttendanceRecap(models.AbstractModel):
             if account_codes:
                 account_ids = []
                 company_ids = []
-                for rec1 in account_codes:
-                    account_ids.append(rec1.account_id)
+                # for rec1 in account_codes:
+                #     account_ids.append(rec1.account_id)
 
-                l_account_code = self.get_account_code(account_ids, l_company_ids1)
+                l_account_code = self.get_account_code(account_codes, l_company_ids1)
 
         elif not l_partner_id:
             if l_only_customers:
@@ -1784,22 +1784,22 @@ class ReportAttendanceRecap(models.AbstractModel):
 
             if l_only_customers and l_only_suppliers:
                 account_codes = self.env['account.move.line'].search(
-                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)])
+                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)]).account_id.ids
 
                 payment_account_ids = self.env['account.account'].search(
-                    ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)])
+                    ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)]).ids
 
             else:
                 if l_only_customers:
-                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)])
+                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)]).account_id.ids
                     payment_account_ids = self.env['account.account'].search(
-                        [('id', 'in', partner_rec_acc_ids)])
+                        [('id', 'in', partner_rec_acc_ids)]).ids
 
                 else:
                     if l_only_suppliers:
-                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)])
+                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)]).account_id.ids
                         payment_account_ids = self.env['account.account'].search(
-                            [('id', 'in', partner_pay_acc_ids)])
+                            [('id', 'in', partner_pay_acc_ids)]).ids
 
             if payment_account_ids:
                 payment_account_codes = self.get_account_code(payment_account_ids, l_company_ids1)
@@ -1816,10 +1816,10 @@ class ReportAttendanceRecap(models.AbstractModel):
             if account_codes:
                 account_ids = []
                 company_ids = []
-                for rec1 in account_codes:
-                    account_ids.append(rec1.account_id)
+                # for rec1 in account_codes:
+                #     account_ids.append(rec1.account_id)
 
-                l_account_code = self.get_account_code(account_ids, l_company_ids1)
+                l_account_code = self.get_account_code(account_codes, l_company_ids1)
 
         
         if len(l_account_code) > 1:

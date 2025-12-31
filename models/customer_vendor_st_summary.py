@@ -1710,21 +1710,20 @@ class ReportAttendanceRecap(models.AbstractModel):
             payment_account_codes =[]
 
             if l_only_customers and l_only_suppliers:
-                account_codes = self.env['account.move.line'].search(
-                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)]).account_id.ids
+                account_codes = self.env['account.account'].search(['|', ('id', 'in', select1), ('id', 'in', select2)]).ids
 
                 payment_account_ids = self.env['account.account'].search(
                     ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)]).ids
 
             else:
                 if l_only_customers:
-                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)]).account_id.ids
+                    account_codes = self.env['account.account'].search([('id', 'in', select1)]).ids
                     payment_account_ids = self.env['account.account'].search(
                         [('id', 'in', partner_rec_acc_ids)]).ids
 
                 else:
                     if l_only_suppliers:
-                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)]).account_id.ids
+                        account_codes = self.env['account.account'].search([('id', 'in', select2)]).ids
                         payment_account_ids = self.env['account.account'].search(
                             [('id', 'in', partner_pay_acc_ids)]).ids
 
@@ -1783,21 +1782,21 @@ class ReportAttendanceRecap(models.AbstractModel):
             payment_account_codes = []
 
             if l_only_customers and l_only_suppliers:
-                account_codes = self.env['account.move.line'].search(
-                    ['|', ('account_id', 'in', select1), ('account_id', 'in', select2)]).account_id.ids
+                account_codes = self.env['account.account'].search(['|', ('id', 'in', select1), ('id', 'in', select2)]).ids
 
                 payment_account_ids = self.env['account.account'].search(
                     ['|', ('id', 'in', partner_rec_acc_ids), ('id', 'in', partner_pay_acc_ids)]).ids
 
             else:
                 if l_only_customers:
-                    account_codes = self.env['account.move.line'].search([('account_id', 'in', select1)]).account_id.ids
+                    account_codes = self.env['account.account'].search([('id', 'in', select1)]).ids
+
                     payment_account_ids = self.env['account.account'].search(
                         [('id', 'in', partner_rec_acc_ids)]).ids
 
                 else:
                     if l_only_suppliers:
-                        account_codes = self.env['account.move.line'].search([('account_id', 'in', select2)]).account_id.ids
+                        account_codes = self.env['account.account'].search([('id', 'in', select2)]).ids
                         payment_account_ids = self.env['account.account'].search(
                             [('id', 'in', partner_pay_acc_ids)]).ids
 

@@ -2042,41 +2042,7 @@ class ReportAttendanceRecap(models.AbstractModel):
         if move_lines:
             
             partner = []
-
-            # # get partner balance customer -supplier =============================================
-            # if len(l_account_code) > 1:
-            #     sql_query3 = """
-            #     select l.partner_id ,p.name as partner_name,sum (debit) as debit , sum (credit) as credit, sum (debit - credit) as balance
-            #
-            #          FROM account_move_line l
-            #              LEFT JOIN res_partner p ON l.partner_id = p.id
-            #              JOIN account_move h ON l.move_id = h.id
-            #              and l.partner_id is not null
-            #              and l.partner_id in (select l.partner_id
-            #                                      FROM account_move_line l
-            #                                          JOIN account_move h ON l.move_id = h.id
-            #                                          and l.partner_id is not null
-            #
-            #                                         and h.state='posted'
-            #                                          and l.date <='{}'
-            #                                    {}
-            #                                    and l.account_id in {})
-            #              and  (l.account_id in {} or l.account_id in {})
-            #              and h.state='posted'
-            #              and l.date <='{}'
-            #
-            #       """.format(date_end,sql_parameters,tuple(select1),tuple(select2), date_end)
-            #     sql_query3 += sql_parameters
-            #     sql_query3 += "  group by l.partner_id ,p.name order by p.name"
-            #     self.env.cr.execute(sql_query3)
-            #     partner_bal = self.env.cr.dictfetchall()
-            #     if partner_bal:
-            #         marge_cust_vendor = []
-            #
-            #         for rec2 in partner_bal:
-            #             marge_cust_vendor.append(rec2)
-            #         print(marge_cust_vendor)
-            # # ====================================================================================
+ 
             account_res = []
             sql_query2 = """select distinct code,'[ '|| code || ' ] '|| name || ' ( ' ||string_agg((select name from res_company where id=company_id), ' , ')|| ' )' as name from account_account"""
             if len(l_account_code) > 1:

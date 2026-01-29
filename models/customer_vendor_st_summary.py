@@ -170,7 +170,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                              LEFT JOIN res_partner p ON l.partner_id = p.id 
                              JOIN account_move h ON l.move_id = h.id
                              where l.account_id=ac.id
-                             and l.partner_id is not null
+                             and l.partner_id is not null  and l.balance !=0
                                  """
                 query_payment_summary = """
                                     select  h.partner_id ,
@@ -281,7 +281,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
                                                    JOIN account_move h ON l.move_id = h.id
                                                    where l.account_id=ac.id
-                                                   and l.partner_id is not null
+                                                   and l.partner_id is not null  and l.balance !=0
                                                   and l.date between '{}' and '{}' 
 
 
@@ -370,7 +370,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                             LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                             JOIN account_move h ON l.move_id = h.id
                                                             where l.account_id=ac.id
-                                                            and l.partner_id is not null
+                                                            and l.partner_id is not null  and l.balance !=0
 
                                                              """
                         query_summary_move = """
@@ -404,7 +404,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                                     LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                                     JOIN account_move h ON l.move_id = h.id
                                                                     where l.account_id=ac.id
-                                                                    and l.partner_id is not null
+                                                                    and l.partner_id is not null  and l.balance !=0
 
                                                                  """
                         query_payment_summary_init = """
@@ -509,7 +509,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                                  LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                                  JOIN account_move h ON l.move_id = h.id
                                                                  where l.account_id=ac.id
-                                                                 and l.partner_id is not null
+                                                                 and l.partner_id is not null  and l.balance !=0
                                                          """
                         query_payment_summary = """
                                                         select    h.partner_id ,
@@ -644,7 +644,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
                                                                            JOIN account_move h ON l.move_id = h.id
                                                                            where l.account_id=ac.id
-                                                                           and l.partner_id is not null
+                                                                           and l.partner_id is not null  and l.balance !=0
 
                                                                            and l.date between '{}' and '{}' 
                                                                           """.format(date_start, date_end)
@@ -904,7 +904,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                            LEFT JOIN res_partner p ON l.partner_id = p.id 
                                            JOIN account_move h ON l.move_id = h.id
                                            where l.account_id=ac.id
-                                           and l.partner_id is not null
+                                           and l.partner_id is not null and l.balance !=0
 
                                             """
                         query_summary_move = """
@@ -937,7 +937,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                    LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                    JOIN account_move h ON l.move_id = h.id
                                                    where l.account_id=ac.id
-                                                   and l.partner_id is not null
+                                                   and l.partner_id is not null and l.balance !=0
 
                                                 """
                         query_payment_summary_init = """
@@ -1040,7 +1040,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                               LEFT JOIN res_partner p ON l.partner_id = p.id 
                               JOIN account_move h ON l.move_id = h.id
                               where l.account_id=ac.id
-                              and l.partner_id is not null
+                              and l.partner_id is not null  and l.balance !=0
 
 
                                   """
@@ -1178,7 +1178,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
                                            JOIN account_move h ON l.move_id = h.id
                                            where l.account_id=ac.id
-                                           and l.partner_id is not null
+                                           and l.partner_id is not null  and l.balance !=0
                                           and l.date between '{}' and '{}' 
 
     
@@ -1215,7 +1215,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                         inner join (select distinct ac.id,ac.code,l.partner_id,ac.internal_type from account_move_line l, account_account ac where ac.id=l.account_id  and ac.internal_type in ('receivable','payable' )) ac 
                                         on ac.partner_id= h.partner_id and case when h.partner_type ='customer' then ac.internal_type = 'receivable' else  ac.internal_type = 'payable'end
     
-                                        where h.state='draft'
+                                        where h.state='draft' 
                                       and h.payment_date between '{}' and '{}' 
     
     
@@ -1264,7 +1264,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                             LEFT JOIN res_partner p ON l.partner_id = p.id 
                                             JOIN account_move h ON l.move_id = h.id
                                             where l.account_id=ac.id
-                                            and l.partner_id is not null
+                                            and l.partner_id is not null  and l.balance !=0
                                              
                                              """
                             query_summary_move = """
@@ -1297,7 +1297,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                     LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                     JOIN account_move h ON l.move_id = h.id
                                                     where l.account_id=ac.id
-                                                    and l.partner_id is not null
+                                                    and l.partner_id is not null  and l.balance !=0
                                                  
                                                  """
                             query_payment_summary_init = """
@@ -1399,7 +1399,7 @@ class ReportAttendanceRecap(models.AbstractModel):
                                                  LEFT JOIN res_partner p ON l.partner_id = p.id 
                                                  JOIN account_move h ON l.move_id = h.id
                                                  where l.account_id=ac.id
-                                                 and l.partner_id is not null
+                                                 and l.partner_id is not null  and l.balance !=0
                                          """
                         query_payment_summary = """
                                         select    h.partner_id ,
@@ -1530,7 +1530,7 @@ class ReportAttendanceRecap(models.AbstractModel):
     
                                                            JOIN account_move h ON l.move_id = h.id
                                                            where l.account_id=ac.id
-                                                           and l.partner_id is not null
+                                                           and l.partner_id is not null  and l.balance !=0
     
                                                            and l.date between '{}' and '{}' 
                                                           """.format(date_start, date_end)

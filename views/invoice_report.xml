@@ -1,0 +1,8 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="account_invoices_no_attachment" model="ir.actions.report">
+        <field name="inherit_id" ref="account.account_invoices"/>
+        <field name="attachment">False</field>
+    </record>
+</odoo>

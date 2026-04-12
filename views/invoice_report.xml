@@ -1,8 +1,12 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="account_invoices_no_attachment" model="ir.actions.report">
+
+    <record id="account_invoices_attachment_toggle" model="ir.actions.report">
         <field name="inherit_id" ref="account.account_invoices"/>
-        <field name="attachment">False</field>
+        <field name="attachment">
+            (object.use_report_attachment and object.state == 'posted') and ((object.name or 'INV').replace('/','_') + '.pdf') or False
+        </field>
     </record>
+
 </odoo>

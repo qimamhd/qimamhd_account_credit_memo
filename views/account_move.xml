@@ -15,6 +15,31 @@
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','in',['out_refund','in_refund'])]}</attribute>
                 </xpath>  
+
+                 <!-- إضافة الحقل -->
+                <xpath expr="//sheet//group" position="inside">
+                    <field name="use_report_attachment"/>
+                </xpath>
+
+                <!-- الأزرار -->
+                <xpath expr="//header" position="inside">
+
+                    <!-- تفعيل -->
+                    <button name="action_toggle_attachment"
+                            type="object"
+                            string="تفعيل المرفق"
+                            class="btn-success"
+                            attrs="{'invisible': [('use_report_attachment','=',True)]}"/>
+
+                    <!-- تعطيل -->
+                    <button name="action_toggle_attachment"
+                            type="object"
+                            string="إلغاء المرفق"
+                            class="btn-danger"
+                            attrs="{'invisible': [('use_report_attachment','=',False)]}"/>
+
+                </xpath>
+
            </field>
     </record>
          

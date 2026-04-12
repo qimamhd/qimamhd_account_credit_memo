@@ -1,12 +1,3 @@
-<!-- <odoo>
-
-    <record id="account.account_invoices" model="ir.actions.report">
-        <field name="attachment">
-            (object.use_report_attachment and object.state == 'posted') and ((object.name or 'INV').replace('/','_') + '.pdf') or False
-        </field>
-    </record>
-
-</odoo> -->
 <odoo>
 
     <record id="account.account_invoices" model="ir.actions.report">

@@ -24,7 +24,7 @@
         'security/security.xml',
         'views/account_move.xml',
         'views/customer_vendor_summary_view.xml',
-        # 'views/invoice_report.xml',
+        'views/invoice_report.xml',
         
 	#'wizards/recap.xml',
     ],

@@ -11,7 +11,10 @@
 
     <record id="account.account_invoices" model="ir.actions.report">
         <field name="attachment">
-            (env['ir.config_parameter'].sudo().get_param('report_attachment_toggle.use_global') == 'True' and object.state == 'posted') and ((object.name or 'INV').replace('/','_') + '.pdf') or False
+            (
+                (object.env['ir.config_parameter'].sudo().get_param('report_attachment_toggle.use_global') == 'True')
+                and object.state == 'posted'
+            ) and ((object.name or 'INV').replace('/','_') + '.pdf') or False
         </field>
     </record>
 

@@ -20,11 +20,11 @@ class account_move(models.Model):
                            raise ValidationError("تنبيه: فاتورة المرتجع غير مطابقة للفاتورة" )
         
     
-    use_report_attachment = fields.Boolean(
-        string="Generate PDF Attachment",
-        default=False
-    )
+    # use_report_attachment = fields.Boolean(
+    #     string="Generate PDF Attachment",
+    #     default=False
+    # )
 
-    def action_toggle_attachment(self):
-        for rec in self:
-            rec.use_report_attachment = not rec.use_report_attachment
+    # def action_toggle_attachment(self):
+    #     for rec in self:
+    #         rec.use_report_attachment = not rec.use_report_attachment

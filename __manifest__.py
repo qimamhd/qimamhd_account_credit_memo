@@ -23,6 +23,7 @@
         # 'security/ir.model.access.csv',
         'security/security.xml',
         'views/account_move.xml',
+        'views/res_config.xml',
         'views/customer_vendor_summary_view.xml',
         'views/invoice_report.xml',
         

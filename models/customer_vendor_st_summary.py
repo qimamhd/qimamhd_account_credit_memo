@@ -1580,7 +1580,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
         sql_parameters = ''
         sql_payment_parameters = ''
-
+        print("move_list******************************",move_list)
         if move_list:
             select = []
             for m in move_list:

@@ -129,7 +129,8 @@ class ReportAttendanceRecap(models.AbstractModel):
 
                 if exception_move:
                     raise ValidationError("تنبيه: توجد فواتير مترجعة [%s] ليست مطابقة مع فواتيرها" % exception_move)
-         
+        print("move_list******************************",move_list)
+
 
         query_summary = ''
         query_payment_summary = ''
@@ -1580,7 +1581,6 @@ class ReportAttendanceRecap(models.AbstractModel):
 
         sql_parameters = ''
         sql_payment_parameters = ''
-        print("move_list******************************",move_list)
         if move_list:
             select = []
             for m in move_list:

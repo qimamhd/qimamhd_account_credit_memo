@@ -111,6 +111,9 @@ class ReportAttendanceRecap(models.AbstractModel):
 
      
         move_list = ''
+
+        print("l_hide_fully_credit_note******************************",l_hide_fully_credit_note)
+
         if l_hide_fully_credit_note:
            if l_display_type == 'detail':
                 state =[]
@@ -129,9 +132,8 @@ class ReportAttendanceRecap(models.AbstractModel):
 
                 if exception_move:
                     raise ValidationError("تنبيه: توجد فواتير مترجعة [%s] ليست مطابقة مع فواتيرها" % exception_move)
+
         print("move_list******************************",move_list)
-
-
         query_summary = ''
         query_payment_summary = ''
         query_summary_init = ''

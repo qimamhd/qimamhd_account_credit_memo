@@ -26,6 +26,7 @@
         'views/res_config.xml',
         'views/customer_vendor_summary_view.xml',
         'views/invoice_report.xml',
+        'views/credit_memo_wizard.xml',
         
 	#'wizards/recap.xml',
     ],
